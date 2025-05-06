@@ -1,0 +1,2 @@
+# archrice-hyprdots
+my Arch + Hyprland Dot Adventure
