@@ -13,59 +13,84 @@ Reference:
 
 Desktop Manager - Hyprland
 Step 1 - Update package manager
+```sh
 sudo pacman -Syu
+```
 
 Step 2 - Install hyprland
+```sh
 sudo pacman -S hyprland
+```
 
 Step 3 - NVidia setup - NVIDIA GeForce RTX 2070 Max-Q
 Reference: https://wiki.hyprland.org/Nvidia/
+```sh
 sudo pacman -S linux-header
 sudo pacman -S nvidia-open-dkms
+```
 
 Extras for gaming
+```sh
 sudo pacman -S nvidia-utils
 sudo pacman -S lib32-nvidia-utils
+```
 
 Rice Template - hyprpuccin
 Reference: https://github.com/jamsnxs/hyprpuccin @ https://www.reddit.com/r/unixporn/comments/1k9yc22/hyprland_some_improvements_to_the_latest_rice_im/
 
 Pre Setup
+```sh
 sudo pacman -S git
+```
 
 Step 1 - Shell (zsh + OhMyZsh) 
 Reference: https://ohmyz.sh/
+```sh
 sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
 Step 2 - Enhance Shell
 Theme
 Reference: https://github.com/romkatv/powerlevel10k
+```sh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+```
 
+```sh
 sudo nano ~/.zshrc
-Locate "ZSH_THEME"
+# Locate "ZSH_THEME"
 Change value to "powerlevel10k/powerlevel10k"
+```
 
 Terminal Emulator
 Reference: https://github.com/alacritty/alacritty
 
+```sh
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
+```
 
 Pre Setup:
 Install rustup.rs
 Reference: https://rustup.rs/
 
+```sh
 rustup override set stable
 rustup update stable
+```
 
+```sh
 pacman -S cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python
+```
 
 Build:
+```sh
 cargo build --release --no-default-features --features=wayland
+```
 
 Configuration
+```sh
 sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
 sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/Alacritty.desktop
@@ -75,6 +100,7 @@ mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
 
 cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+```
 
 ```
 #   ███╗  ███╗████████╗███╗   ██╗████████╗
